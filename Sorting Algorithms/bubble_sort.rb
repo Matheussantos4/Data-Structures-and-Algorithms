@@ -1,22 +1,25 @@
 def bubble_sort(array)
   limit = array.length - 1
-  for j in 0..limit
-    swap = false
-    for i in 0..limit-1
-      if array[i + 1] < array[i]
-        array[i], array[i + 1] = array[i + 1], array[i]
-        swap = true
+  limit.times do |i|
+    puts "Round #{i}"
+    swapped = false
+    limit.times do |n|
+      puts "  Iterantion #{n}"
+      if array[n] > array[n + 1]
+        array[n], array[n + 1] = array[n + 1], array[n]
+        swapped = true
       end
+      puts "    #{array}"
     end
-    if swap == false
+    limit = limit - 1
+    if swapped == false
       return
     end    
   end      
 end
 
-array = [30,40,90,70,23,80,130]
+array = [25,48,61,2,6,15,12]
 
 bubble_sort(array)
 
-puts array
 
